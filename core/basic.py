@@ -24,6 +24,7 @@ def listAndTuple():
 
 
 def dictAndSet():
+    ##
     d = {'name': 'jason', 'age': 20}
 
     d['gender'] = 'male'
@@ -32,7 +33,18 @@ def dictAndSet():
     d.pop('dob')
     print(d)
 
+    d = {'b': 1, 'a': 2, 'c': 10}
+    d_sorted_by_key = sorted(d.items(), key=lambda s: s[0])
+    d_sorted_by_value = sorted(d.items(), key=lambda s: s[1])
+    print(d_sorted_by_key)
+    print(d_sorted_by_value)
+
+    ##
     s = {1, 2, 3}
     s.add(4)
     s.remove(4)
     print(s)
+
+
+
+
