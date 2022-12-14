@@ -46,5 +46,31 @@ def dictAndSet():
     print(s)
 
 
+def ifAndLoop():
+    ##
+    id = 2;
+    if id == 0:
+        print('red')
+    elif id == 1:
+        print('yellow')
+    else:
+        print('green')
+
+    ##
+    l = [5, 2, 3, 9]
+    for item in l:
+        print(item)
+
+    print('-')
+    l = [6, 7, 1, 2, 3, 4, 5]
+    for index in range(0, len(l)):
+      if index < 5:
+         print(l[index])
+
+    print('-')
+    l = [1, 2, 3, 4, 5, 6, 7]
+    for index, item in enumerate(l):
+      if index < 5:
+         print(index,item)
 
 
