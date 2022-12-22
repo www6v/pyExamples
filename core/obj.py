@@ -1,5 +1,5 @@
 
-class Document():
+class Doc():
     WELCOME_STR = 'Welcome! The context for this book is {}.'
 
     def __init__(self, title, author, context):
@@ -20,7 +20,7 @@ class Document():
     # 静态函数
     @staticmethod
     def get_welcome(context):
-        return Document.WELCOME_STR.format(context)
+        return Doc.WELCOME_STR.format(context)
 
 
 
