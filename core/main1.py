@@ -5,7 +5,7 @@ import pandas as pd
 
 from core.obj import Doc
 from core.obj1 import Video, Document
-
+from core.decorator import *
 
 def jsonHandler():
     with open('abc.json', 'r') as f:
@@ -61,6 +61,8 @@ if __name__ == '__main__':
     pureFunc()
     objFunc()
     objFunc1()
+    greet()
+    example()
 
 
 
