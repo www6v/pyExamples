@@ -123,3 +123,5 @@ dmypy.json
 .idea/
 pythonDemo2/
 *.iml
+
+.idea/workspace.xml
