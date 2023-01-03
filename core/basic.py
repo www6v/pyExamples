@@ -98,3 +98,39 @@ def errorHandling1():
         raise MyInputError(1)
     except MyInputError as err:
         print('error: {}'.format(err))
+
+def compare():
+    a = 257
+    b = 257
+    print( id(a) )
+    print( id(b) )
+    print(a == b)  # 对象间的值是否相等
+    print(a is b)  # 是否指向同一个内存地址
+
+def shallowCopy():
+    l1 = [1, 2, 3]
+    l2 = list(l1)
+    print( l1 == l2 )
+    print( l1 is l2 )
+
+# 浅拷贝通常会带来一些副作用
+def  shallowCopy1():
+    l1 = [[1, 2], (30, 40)]
+    l2 = list(l1)
+    l1.append(100)
+    l1[0].append(3)
+    print(l1)
+    print(l2)
+    l1[1] += (50, 60)
+    print(l1)
+    print(l2)
+
+
+def deepcopy():
+    import copy
+    l1 = [[1, 2], (30, 40)]
+    l2 = copy.deepcopy(l1)
+    l1.append(100)
+    l1[0].append(3)
+    print(l1)
+    print(l2)
