@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a80f9f4-a902-4612-b7ca-626d399e3007" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/basic_iter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/basic_ref.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspacePy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspacePy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/basic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,14 +32,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/mine/workspacePy/pyDemo/core",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/mine/workspacePy/pyDemo/core&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\mine\workspacePy\pyDemo\core" />
@@ -46,7 +48,7 @@
       <recent name="D:\mine\workspacePy\core" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main1">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="workspacePy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,8 +119,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main1" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.main1" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
