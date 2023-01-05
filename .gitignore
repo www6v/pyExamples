@@ -125,3 +125,5 @@ pythonDemo2/
 *.iml
 
 .idea/workspace.xml
+.idea/misc.xml
+.idea/workspacePy.iml
