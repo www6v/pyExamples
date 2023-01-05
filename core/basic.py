@@ -1,3 +1,6 @@
+import json
+import pandas as pd
+
 class MyInputError(Exception):
     def __init__(self, value):
         self.value = value
@@ -135,4 +138,8 @@ def deepcopy():
     print(l1)
     print(l2)
 
-
+def jsonHandler():
+    with open('abc.json', 'r') as f:
+        data = json.loads(f.read())
+    df_nested_list = pd.json_normalize(data, record_path=['students'])  # 指定输出 student 项目下的内容
+    print(df_nested_list)

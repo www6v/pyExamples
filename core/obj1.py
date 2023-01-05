@@ -35,3 +35,16 @@ class Video(Entity):
 
     def get_context_length(self):
         return self.__video_length
+
+
+def objFunc1():
+    harry_potter_book = Document('Harry Potter(Book)', 'J. K. Rowling',
+                                 '... Forever Do not believe any thing is capable of thinking independently ...')
+    harry_potter_movie = Video('Harry Potter(Movie)', 'J. K. Rowling', 120)
+    print(harry_potter_book.object_type)
+    print(harry_potter_movie.object_type)
+
+    harry_potter_book.print_title()
+    harry_potter_movie.print_title()
+    print(harry_potter_book.get_context_length())
+    print(harry_potter_movie.get_context_length())
