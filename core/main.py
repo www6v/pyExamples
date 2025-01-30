@@ -14,16 +14,17 @@ class MainClass:
         # basic.errerHandling()
         basic.errorHandling1()
         basic.compare()
+        basic.jsonHandler()
 
     def dataType(self):
         s = Scheduler()
         s.abort_seq_group()
 
 
-        # bc.listFunc()
-        # bc.tupleFunc()
-        # bc.dictFunc()
-        # bc.setFunc()
+        bc.listFunc()
+        bc.tupleFunc()
+        bc.dictFunc()
+        bc.setFunc()
 
 
         # bc.shallowCopy()
@@ -35,16 +36,16 @@ class MainClass:
         br.reference1()
 
         bi.iter_test()
-        bi.test_iterator()
-        bi.test_generator()
+        # bi.test_iterator()
+        # bi.test_generator()
         co.asynRun()
         co.asynRun1()    
 
 if __name__ == '__main__':
     m = MainClass()
 
-    # m.basicFunc()
+    m.basicFunc()
     m.dataType()  
-    # m.otherFunc()
+    m.otherFunc()
 
 

@@ -25,6 +25,7 @@ class Doc():
 
 def objFunc():
     empty_book = Doc.create_empty_book('What Every Man Thinks About Apart from Sex', 'Professor Sheridan Simove')
+    
     print(empty_book.get_context_length())
     print(empty_book.get_welcome('indeed nothing'))
 
