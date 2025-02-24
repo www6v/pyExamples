@@ -247,16 +247,9 @@ if __name__ == '__main__':
 
 
 
-def main(result1: str, result2: str,
-                      result3: str, result4: str,
-                      result5: str, result6: str, result7: str) -> bool:
-    # 所有检查结果进行与操作
-    # final_result = result1 and result2 and result3 and result4 and result5 and result6 and result7
 
-    if result1 == 'True' and result2 == 'True' and result3 == 'True' and result4 == 'True' and result5 == 'True' and result6 == 'True' and result7 == 'True'):
-       return {"final_result" : str(True) }  
-    else:
-       return {"final_result" : str(False)}   
+
+
  
 
 

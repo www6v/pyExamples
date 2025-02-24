@@ -1,0 +1,100 @@
+# 对于承兑业务，
+# 发票的购买方，与票面上的出票人一致；发票的销售方，与票面上的收款人一致。
+def check_invoice_bill_parties(invoice_buyer: str, bill_drawer: str,
+                             invoice_seller: str, bill_payee: str) -> bool:
+    """
+    检查发票购买方与票面出票人是否一致，发票销售方与票面收款人是否一致
+    
+    Args:
+        invoice_buyer: 发票购买方
+        bill_drawer: 票面出票人
+        invoice_seller: 发票销售方 
+        bill_payee: 票面收款人
+        
+    Returns:
+        bool: 如果发票购买方与出票人一致且发票销售方与收款人一致返回True，否则返回False
+    """
+    # 检查发票购买方是否与票面出票人一致
+    buyer_match = (invoice_buyer == bill_drawer)
+    
+    # 检查发票销售方是否与票面收款人一致
+    seller_match = (invoice_seller == bill_payee)
+    
+    return buyer_match and seller_match
+
+
+# 对于贴现业务，
+# 发票上的销售方，与贴现申请人一致；发票上的购买方，与贴现申请人直接前手一致
+# 一手票除外。
+def check_invoice_discount_parties(invoice_seller: str, discount_applicant: str,
+                                     invoice_buyer: str, direct_predecessor: str) -> bool:
+        """
+        检查发票销售方与贴现申请人是否一致，发票购买方与贴现申请人直接前手是否一致
+        
+        Args:
+            invoice_seller: 发票销售方
+            discount_applicant: 贴现申请人
+            invoice_buyer: 发票购买方
+            direct_predecessor: 贴现申请人直接前手
+            
+        Returns:
+            bool: 如果发票销售方与贴现申请人一致且发票购买方与直接前手一致返回True，否则返回False
+        """
+        # 检查发票销售方是否与贴现申请人一致
+        seller_match = (invoice_seller == discount_applicant)
+        
+        # 检查发票购买方是否与贴现申请人直接前手一致
+        buyer_match = (invoice_buyer == direct_predecessor)
+        
+        return seller_match and buyer_match
+
+
+
+# 发票开票日期，早于或等于当前日期。
+def check_invoice_date(invoice_date: str) -> bool:
+        """
+        检查发票开票日期是否早于或等于当前日期
+        
+        Args:
+            invoice_date: 发票开票日期，格式为YYYY-MM-DD
+            
+        Returns:
+            bool: 如果发票日期早于或等于当前日期返回True，否则返回False
+        """
+        from datetime import datetime
+        
+        # 将日期字符串转换为datetime对象
+        invoice_dt = datetime.strptime(invoice_date, '%Y-%m-%d')
+        current_dt = datetime.now()
+        
+        # 只比较日期部分
+        invoice_date = invoice_dt.date()
+        current_date = current_dt.date()
+        
+        return invoice_date <= current_date
+
+
+
+if __name__ == '__main__':
+    a = check_invoice_bill_parties("ab","ab","ab","ab")
+    print(a)
+
+    # 测试用例
+    result = check_invoice_discount_parties(
+        "销售公司", "销售公司",
+        "采购公司", "采购公司"
+    )
+    print(f"发票与贴现业务各方主体检查结果: {result}")
+
+    # 测试用例
+    result = check_invoice_date('2025-01-15')
+    print(f"发票日期检查结果: {result}")
+
+
+
+
+
+
+
+
+
