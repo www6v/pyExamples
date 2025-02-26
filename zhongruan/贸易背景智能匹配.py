@@ -151,6 +151,17 @@ def check_contract_date(contract_date: str) -> bool:
     return contract_date <= current_date
 
 
+
+def aggregate_results(result1: str, result2: str,
+                      result3: str, result4: str,
+                      result5: str, result6: str) -> bool:
+    if result1 == 'True' and result2 == 'True' and result3 == 'True' and result4 == 'True' and result5 == 'True' and result6 == 'True':
+       return True 
+    else:
+       return False   
+
+
+
 if __name__ == '__main__':
     ###########  发票匹配规则 
     a = check_invoice_bill_parties("ab","ab","ab","ab")
@@ -177,7 +188,8 @@ if __name__ == '__main__':
     print(f"合同与发票各方主体检查结果: {result}")
 
 
-
+    final_result = aggregate_results('True', 'True', 'True', 'True', 'True', 'True') 
+    print(f"最终检查结果-: {final_result}")
 
 
 
