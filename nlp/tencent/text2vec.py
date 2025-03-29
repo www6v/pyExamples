@@ -1,4 +1,5 @@
 
+# 腾讯中文词向量word2vec-tencent-chinese
 from text2vec import Word2Vec
 
 # 

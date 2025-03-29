@@ -1,6 +1,6 @@
 # 实体抽取
 from pprint import pprint
-from paddlenlp import Taskflow
+from nlp.UIE.paddlenlp import Taskflow
 
 schema = ['时间', '选手', '赛事名称'] # Define the schema for entity extraction
 ie = Taskflow('information_extraction', schema=schema)
