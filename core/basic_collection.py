@@ -61,8 +61,12 @@ def setFunc():
     print(s)     
 
 
+def enumerateFunc():
+    a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for index, item in enumerate(a):
+        print(index, item)
 
-
+        
 # def shallowCopy():
 #     l1 = [1, 2, 3]
 #     l2 = list(l1)

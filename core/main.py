@@ -25,6 +25,7 @@ class MainClass:
         bc.tupleFunc()
         bc.dictFunc()
         bc.setFunc()
+        bc.enumerateFunc()
 
 
         # bc.shallowCopy()
