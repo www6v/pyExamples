@@ -1,4 +1,5 @@
 
+# 冒泡排序[不稳定]
 def bubble_sort(arr):
     for i in range(len(arr)):
         for j in range(len(arr) - i - 1):
@@ -7,6 +8,7 @@ def bubble_sort(arr):
     return arr
 
 
+# 快速排序[不稳定]
 def quick_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -15,6 +17,9 @@ def quick_sort(arr):
     middle = [x for x in arr if x == pivot]
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + middle + quick_sort(right)
+
+
+
 
 
 if __name__ == "__main__" :
