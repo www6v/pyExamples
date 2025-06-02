@@ -1,0 +1,111 @@
+import requests
+import os
+# import json
+
+from readFile import read_file_to_string  
+
+strDict = {
+  "result": "{\"posts\": [{\"text\": \"胖宝宝睡大觉回头发现喵喵居然侧躺着，肥脸太可爱了，肥诺诺的[害羞R][害羞R][害羞R][害羞R][害羞R][害羞R][害羞R]\", \"post_id\": \"674b089b0000000002018c8b\"}, {\"text\": \"纽贝兰朵羊奶粉哪里好啊??六年母婴一共没卖过几箱这个奶 因为很多妈妈追求大众品牌 其实冷门的奶粉配方也很好的[耶R][耶R]粉2段的 有 16:34 新日期吗 16:41 可爱母婴 纽贝兰朵 纽 是的 17:49 辽宁 书院： 3 纽贝兰朵羊奶粉二段一箱 净含量：00220 净含量：80 万羊奶粉（12-36月龄，3段） 一-1月龄，2 请收款 微信转账\", \"post_id\": \"673aef430000000007032f8c\"}, {\"text\": \"请大数据把我推荐给所有宝妈！宝宝喂养其实很简单推荐给所有宝妈！ 宝宝喂养其实很简单 NAN INFINIPRO.能恩圣罐 BREAKTHROUGHFORMULA Nestle雀巢能恩全护， 6HMO婴/儿配方奶粉\", \"post_id\": \"6745d71c00000000060152eb\"}]}"
+}
+
+
+def send_post_request(url: str, json_body: dict, headers: dict = None, params: dict = None)  -> requests.Response:
+    """
+    Send an HTTP POST request with a JSON body, custom headers, and query parameters.
+
+    Args:
+        url (str): The URL to send the request to.
+        json_body (dict): The JSON body of the request.
+        headers (dict, optional): Custom HTTP headers. Defaults to None.
+        params (dict, optional): Query parameters. Defaults to None.
+
+    Returns:
+        requests.Response: The response from the server.
+    """
+    try:
+        response = requests.post(
+            url,
+            json=json_body,  # Automatically sets Content-Type to application/json
+            headers=headers,
+            params=params,
+        )
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        return response
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        raise
+
+
+
+
+
+
+if __name__ == "__main__":
+    # Example JSON body
+    # json_body = {
+    #     "key1": "value1",
+    #     "key2": "value2",
+    # }
+
+    data = strDict['result']
+
+    file_path = "/Users/wei.wang/workspace/pyExamples/web/http/danone_post.tpl"
+    prompt = read_file_to_string(file_path)
+
+    # URL to send the request to
+    url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+
+    model = 'qwen-plus'
+
+    json_body = {
+        "model": model,
+        "input": {
+            "messages": [{
+                    "role": "system",
+                    "content":  prompt
+                },
+                {
+                    "role": "user",
+                    "content": data
+                }
+            ]
+        },
+        "parameters": {
+            "result_format": "message",
+            "top_p": 0.8,
+            "temperature": 0.7
+        }
+    }
+
+
+    token = os.getenv('qwenToken') 
+
+    # Example headers
+    headers = {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json",
+        "Custom-Header": "CustomValue",
+    }
+
+    # Example query parameters
+    params = {
+        "param1": "value1",
+        "param2": "value2",
+    }
+
+    params = {
+        "run_id": "1",
+        "url": url,
+        "model": model,
+        "data_id": "1",
+        "prompt": "",
+        "data": "",
+        "start_request_time": "",
+    }
+
+
+
+    # Send the request
+    response = send_post_request(url, json_body, headers, params)
+    print(f"Response status code: {response.status_code}")
+    print(f"Response body: {response.json()}")
