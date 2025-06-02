@@ -40,22 +40,13 @@ def send_post_request(url: str, json_body: dict, headers: dict = None, params: d
 
 
 
-if __name__ == "__main__":
-    # Example JSON body
-    # json_body = {
-    #     "key1": "value1",
-    #     "key2": "value2",
-    # }
-
+def prepare(strDict, prompt, qwenToken):
     data = strDict['result']
-
-    file_path = "/Users/wei.wang/workspace/pyExamples/web/http/danone_post.tpl"
-    prompt = read_file_to_string(file_path)
 
     # URL to send the request to
     url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
 
-    model = 'qwen-plus'
+    model = 'qwen-turbo' #   qwen-plus
 
     json_body = {
         "model": model,
@@ -78,19 +69,10 @@ if __name__ == "__main__":
     }
 
 
-    token = os.getenv('qwenToken') 
-
-    # Example headers
     headers = {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + qwenToken,
         "Content-Type": "application/json",
         "Custom-Header": "CustomValue",
-    }
-
-    # Example query parameters
-    params = {
-        "param1": "value1",
-        "param2": "value2",
     }
 
     params = {
@@ -102,10 +84,88 @@ if __name__ == "__main__":
         "data": "",
         "start_request_time": "",
     }
+    
+    return url,json_body,headers,params
 
 
+# def prepare(strDict, prompt, qwenToken):
+#     data = strDict
 
-    # Send the request
+#     # file_path = "/Users/wei.wang/workspace/pyExamples/web/http/danone_post.tpl"
+#     # prompt = read_file_to_string(file_path)
+#     # prompt = os.getenv('prompt') 
+
+#     # URL to send the request to
+#     url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+
+#     model = 'qwen-turbo'
+
+#     json_body = {
+#         "model": model,
+#         "input": {
+#             "messages": [{
+#                     "role": "system",
+#                     "content":  prompt
+#                 },
+#                 {
+#                     "role": "user",
+#                     "content": data
+#                 }
+#             ]
+#         },
+#         "parameters": {
+#             "result_format": "message",
+#             "top_p": 0.8,
+#             "temperature": 0.7
+#         }
+#     }
+
+
+#     # Example headers
+#     headers = {
+#         "Authorization": "Bearer " + qwenToken,
+#         "Content-Type": "application/json",
+#         "Custom-Header": "CustomValue",
+#     }
+
+#     params = {
+#         "run_id": "1",
+#         "url": "", #### 
+#         "model": model,
+#         "data_id": "1",
+#         "prompt": "",
+#         "data": "",
+#         "start_request_time": "",
+#     }
+    
+#     return url,json_body,headers,params
+
+
+# if __name__ == "__main__":
+#     url, json_body, headers, params = prepare(strDict)
+
+#     # Send the request
+#     response = send_post_request(url, json_body, headers, params)
+    
+#     print(f"Response status code: {response.status_code}")
+#     print(f"Response body: {response.json()}")
+
+
+# def main(strDict: str, prompt:str, qwenToken:str) -> dict:
+if __name__ == "__main__":
+
+    file_path = "/Users/wei.wang/workspace/pyExamples/web/http/danone_post.tpl"
+    prompt = read_file_to_string(file_path)
+
+    qwenToken = os.getenv('qwenToken') 
+
+    url, json_body, headers, params = prepare(strDict, prompt, qwenToken)
+
     response = send_post_request(url, json_body, headers, params)
+
     print(f"Response status code: {response.status_code}")
     print(f"Response body: {response.json()}")
+
+    # {
+    #     "result": response.status_code + response.json(),
+    # }
