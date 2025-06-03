@@ -1,6 +1,6 @@
 import requests
 import os
-# import json
+import json
 
 from readFile import read_file_to_string  
 
@@ -46,7 +46,7 @@ def prepare(strDict, prompt, qwenToken):
     # URL to send the request to
     url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
 
-    model = 'qwen-turbo' #   qwen-plus
+    model = 'qwen-plus' # qwen-turbo   
 
     json_body = {
         "model": model,
@@ -159,14 +159,41 @@ if __name__ == "__main__":
 
     qwenToken = os.getenv('qwenToken') 
 
-    url, json_body, headers, params = prepare(strDict, prompt, qwenToken)
+    url, json_body, headers, params = prepare(strDict, prompt, qwenToken) 
+    print(url)
+    print(json_body) 
+    print(headers)
+    print(params)
 
     response = send_post_request(url, json_body, headers, params)
 
     print(f"Response status code: {response.status_code}")
-    # print(f"Response body: {response.json()}")
+    print(f"Response body: {response.json()}")
+
+
+    # json_str = str(response.json())
+
+    # # Parse the JSON string
+    # data = json.loads(json_str)
+
+
+    data = response.json()
+
+    # Extract the required fields
+    validated_success_data = {
+        "input_tokens": data["usage"]["input_tokens"],
+        "output_tokens": data["usage"]["output_tokens"],
+        "total_tokens": data["usage"]["total_tokens"],
+        "request_id": data["request_id"],
+        "finish_reason": data["output"]["choices"][0]["finish_reason"],
+        "content": json.loads(data["output"]["choices"][0]["message"]["content"])
+    }
+
+    # Print the result
+    print(validated_success_data)
 
     # {
     #     "result": response.status_code + response.json(),
     # }
-    print(f"Response body: {str(response.json())}")
+    
+    # print(f"Response body: {str(response.json())}")
