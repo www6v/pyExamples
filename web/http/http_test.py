@@ -164,8 +164,9 @@ if __name__ == "__main__":
     response = send_post_request(url, json_body, headers, params)
 
     print(f"Response status code: {response.status_code}")
-    print(f"Response body: {response.json()}")
+    # print(f"Response body: {response.json()}")
 
     # {
     #     "result": response.status_code + response.json(),
     # }
+    print(f"Response body: {str(response.json())}")
