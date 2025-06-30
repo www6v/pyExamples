@@ -1,3 +1,4 @@
+# https://python-tutorials.in/python-queue-understanding-fifo-and-lifo-with-examples/
 import queue
 import threading
 import time
