@@ -4,7 +4,7 @@ import threading
 import time
 
 def process_task(task_queue):
-    # while True:
+    while True:
         task = task_queue.get()
         print(f"Processing task: {task}")
 
