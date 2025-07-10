@@ -1,7 +1,7 @@
 import basic
 import basic_ref as br
 import basic_iter as bi
-import coroutine as co
+import concurrent.coroutine as co
 
 import basic_collection as bc
 from basic_collection import Scheduler
