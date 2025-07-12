@@ -7,7 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.115.12",
     "flask>=3.1.0",
+    "flask-limiter>=3.12",
     "gevent>=25.5.1",
+    "locust>=2.37.12",
     "openai>=1.93.0",
     "pandas>=2.2.3",
     "proxy>=0.0.1",
